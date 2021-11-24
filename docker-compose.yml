@@ -23,3 +23,32 @@ services:
     environment:
       POSTGRES_USER: todoapp
       POSTGRES_DB: todos
+
+
+
+
+
+
+
+
+version: '2'
+services:
+  web:
+    build: .
+    command: npm run dev
+    volumes:
+      
+      - .:C:\Users\ivand\OneDrive\Documents\efrei\s9\data ing II\ivan_de_la_ronciere\app
+      - /C:\Users\ivand\OneDrive\Documents\efrei\s9\data ing II\ivan_de_la_ronciere/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql_server
+    
+  mysql_server:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE = ivan_db
+      - MYSQL_USER = Omar
+      - MYSQL_PASSEWORD = ivan_de_la_ronciere
+      - MYSQL_ROOT_PASSEWORD= ivan_de_la_ronciere
